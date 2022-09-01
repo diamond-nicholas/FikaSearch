@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage {
+  display: flex;
+
+  .main {
+    width: 80vw;
+    height: 100vh;
+    background: #414c55;
+    color: #fff;
+
+    .nav-wrapper {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .filter {
+    width: 20vw;
+    height: 100vh;
+    background: blue;
+  }
+}
