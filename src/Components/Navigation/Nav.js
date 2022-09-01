@@ -3,9 +3,18 @@ import './Nav.scss';
 
 const Nav = () => {
   return (
-    <>
-      <h1>hello world</h1>
-    </>
+    <nav className='nav'>
+      <h1>FikaSearch App</h1>
+
+      <div className='nav-wrapper'>
+        <p>Movies</p>
+
+        <div className='search'>
+          <input type='text' placeholder='search' />
+          <i class='fal fa-search'></i>
+        </div>
+      </div>
+    </nav>
   );
 };
 
