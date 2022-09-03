@@ -8,24 +8,35 @@ import CardMedia from '@material-ui/core/CardMedia';
 import FilterNav from './Components/Navigation/FilterNav';
 import { useSelector, useDispatch } from 'react-redux';
 import { data } from './Redux/actions/index';
+import { genreList } from './Redux/actions/index';
 import axios from 'axios';
 
 function App() {
   const dispatch = useDispatch();
   const movieList = useSelector((state) => state.install.Data);
+  const genresList = useSelector((state) => state.genre.Data);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=d432b933ecc6d5642d8d2befbc40c7ac&language=en-US&page=1&include_adult=false`;
 
     const resp = await axios.get(url, { mode: 'cors' });
-    console.log(resp.data.results);
+    // console.log(resp.data.results);
     dispatch(data(resp.data.results));
+    setLoading(false);
+  };
+
+  const fetchGenre = async () => {
+    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=d432b933ecc6d5642d8d2befbc40c7ac&language=en-US`;
+
+    const resp = await axios.get(url, { mode: 'cors' });
+    dispatch(genreList(resp.data.genres));
     setLoading(false);
   };
 
   useEffect(() => {
     fetchData();
+    fetchGenre();
   }, []);
   return (
     <div className='homepage'>
@@ -73,13 +84,14 @@ function App() {
             </div>
 
             <div className='genre-list'>
-              <button className='genre-btn'>Action</button>
-              <button className='genre-btn'>Adventure</button>
-              <button className='genre-btn'>Animation</button>
-              <button className='genre-btn'>Comedy</button>
-              <button className='genre-btn'>Crime</button>
-              <button className='genre-btn'>Documentary</button>
-              <button className='genre-btn'>Drama</button>
+              {genresList &&
+                genresList.map(({ id, name }) => {
+                  return (
+                    <button key={id} className='genre-btn'>
+                      {name}
+                    </button>
+                  );
+                })}
             </div>
           </article>
         </div>
