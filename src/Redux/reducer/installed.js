@@ -9,7 +9,6 @@ const installedReducer = (state = initalState, { type, payload }) => {
     return {
       ...state,
       Data: payload,
-      isLoading: false,
     };
   } else return state;
 };
