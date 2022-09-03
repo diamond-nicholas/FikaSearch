@@ -1,7 +1,6 @@
 import * as actions from '../actions/actionTypes';
 const initalState = {
   Data: [],
-  isLoading: true,
   isError: false,
 };
 
