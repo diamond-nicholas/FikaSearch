@@ -4,8 +4,8 @@ const initalState = {
   isError: false,
 };
 
-const installedReducer = (state = initalState, { type, payload }) => {
-  if (type === actions.INSTALLED_SDK) {
+const movieReducer = (state = initalState, { type, payload }) => {
+  if (type === actions.MOVIE_LIST) {
     return {
       ...state,
       Data: payload,
@@ -13,4 +13,4 @@ const installedReducer = (state = initalState, { type, payload }) => {
   } else return state;
 };
 
-export default installedReducer;
+export default movieReducer;

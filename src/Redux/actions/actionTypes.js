@@ -1,2 +1,2 @@
-export const INSTALLED_SDK = 'INSTALLED';
+export const MOVIE_LIST = 'MOVIE_LIST';
 export const GENRES = 'GENRE';

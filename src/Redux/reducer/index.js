@@ -1,10 +1,10 @@
-import installedReducer from './installed';
+import movieReducer from './movie';
 import genreReducer from './genre';
 
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
-  install: installedReducer,
+  movie: movieReducer,
   genre: genreReducer,
 });
 

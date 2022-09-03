@@ -1,8 +1,8 @@
 import * as actions from './actionTypes';
 
-export const data = (sdks) => ({
-  type: actions.INSTALLED_SDK,
-  payload: sdks,
+export const movieLists = (movie) => ({
+  type: actions.MOVIE_LIST,
+  payload: movie,
 });
 
 export const genreList = (genre) => ({

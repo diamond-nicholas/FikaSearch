@@ -7,13 +7,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import FilterNav from './Components/Navigation/FilterNav';
 import { useSelector, useDispatch } from 'react-redux';
-import { data } from './Redux/actions/index';
+import { movieLists } from './Redux/actions/index';
 import { genreList } from './Redux/actions/index';
 import axios from 'axios';
 
 function App() {
   const dispatch = useDispatch();
-  const movieList = useSelector((state) => state.install.Data);
+  const movieList = useSelector((state) => state.movie.Data);
   const genresList = useSelector((state) => state.genre.Data);
   const [loading, setLoading] = useState(true);
 
@@ -21,8 +21,7 @@ function App() {
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=d432b933ecc6d5642d8d2befbc40c7ac&language=en-US&page=1&include_adult=false`;
 
     const resp = await axios.get(url, { mode: 'cors' });
-    // console.log(resp.data.results);
-    dispatch(data(resp.data.results));
+    dispatch(movieLists(resp.data.results));
     setLoading(false);
   };
 
@@ -47,7 +46,7 @@ function App() {
         <article className='movie-list'>
           <div className='movie-list-wrapper'>
             {movieList &&
-              movieList.map(({ id, poster_path, title }) => {
+              movieList.map(({ id, poster_path, title, genre_ids }) => {
                 return (
                   <Card key={id} sx={{ maxWidth: 300 }}>
                     <CardMedia
@@ -60,8 +59,20 @@ function App() {
                       <Typography gutterBottom variant='p' component='div'>
                         Title: {title}
                       </Typography>
-                      <Typography gutterBottom variant='p' component='div'>
-                        Genre: Action
+                      <Typography
+                        className='genre-wrapper-list'
+                        gutterBottom
+                        variant='p'
+                        component='div'
+                      >
+                        Genre:
+                        {genresList
+                          .filter((num) => genre_ids.includes(num.id))
+                          .map((num) => {
+                            return (
+                              <p className='genre-loop-list'>({num.name})</p>
+                            );
+                          })}
                       </Typography>
                     </CardContent>
                   </Card>
@@ -71,7 +82,7 @@ function App() {
         </article>
 
         <article className='view-more'>
-          <button>View More</button>
+          {/* <button>View More</button> */}
         </article>
       </section>
       <section className='filter'>
@@ -80,7 +91,7 @@ function App() {
 
           <article className='genre-wrapper'>
             <div className='header'>
-              <h5>Genres</h5>
+              <h5>Genre List</h5>
             </div>
 
             <div className='genre-list'>

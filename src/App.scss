@@ -34,6 +34,20 @@
           div {
             background: #fff;
           }
+
+          .genre-wrapper-list {
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+
+            .genre-loop-list {
+              background: #fff;
+              font-size: 0.7rem;
+              padding-right: 3px;
+              padding-left: 3px;
+              // margin-top: px;
+            }
+          }
         }
       }
     }
