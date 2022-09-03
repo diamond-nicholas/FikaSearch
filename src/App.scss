@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DynaPuff&family=Poppins:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #414c55;
 }
 
 .homepage {
@@ -9,18 +12,106 @@
 
   .main {
     width: 80vw;
-    height: 100vh;
+    height: 100%;
     background: #414c55;
     color: #fff;
 
     .nav-wrapper {
       padding: 0.5rem 1rem;
     }
+
+    .movie-list {
+      padding: 0.5rem 1rem;
+      .movie-list-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        font-family: 'DynaPuff', cursive;
+
+        .movie-list-content {
+          background: #fff;
+
+          div {
+            background: #fff;
+          }
+        }
+      }
+    }
+
+    .view-more {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+
+      button {
+        border: 1px solid #fff;
+        font-family: 'DynaPuff', cursive;
+        background: #fff;
+        color: #414c55;
+        padding: 0.8rem 3rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+        width: 70%;
+      }
+
+      button:hover {
+        background: #414c55;
+        color: #fff;
+        transition: 0.5s ease-in-out;
+      }
+    }
   }
 
   .filter {
     width: 20vw;
-    height: 100vh;
-    background: blue;
+    height: 100%;
+    background: #414c55;
+
+    .filter-nav-wrapper {
+      padding-top: 3rem;
+
+      .genre-wrapper {
+        height: 100%;
+        width: 100%;
+        margin-top: 3rem;
+
+        .header {
+          padding-left: 1rem;
+
+          h5 {
+            font-family: 'DynaPuff', cursive;
+            color: #fff;
+            text-decoration: underline;
+            font-size: 1rem;
+          }
+        }
+
+        .genre-list {
+          text-align: center;
+          margin-top: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          .genre-btn {
+            border: 1px solid #fff;
+            font-family: 'DynaPuff', cursive;
+            background: transparent;
+            color: #fff;
+            padding: 0.8rem 3rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            width: 70%;
+          }
+
+          .genre-btn:hover {
+            background: #fff;
+            color: #414c55;
+            transition: 0.5s ease-in-out;
+          }
+        }
+      }
+    }
   }
 }

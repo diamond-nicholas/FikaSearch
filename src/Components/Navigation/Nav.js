@@ -7,7 +7,7 @@ const Nav = () => {
       <h1>FikaSearch App</h1>
 
       <div className='nav-wrapper'>
-        <p>Movies</p>
+        <p>Movie List</p>
 
         <div className='search'>
           <input type='text' placeholder='search' />
