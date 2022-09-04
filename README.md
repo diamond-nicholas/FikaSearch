@@ -1,3 +1,5 @@
+![](<(https://img.shields.io/badge/fikaSearch-blueviolet)>)
+
 # FikaSearch
 
 ![Cover Photo](./public/demo.png)
