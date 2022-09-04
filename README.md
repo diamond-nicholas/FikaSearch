@@ -1,6 +1,6 @@
 # FikaSearch
 
-![Cover Photo](demo.png)
+![Cover Photo](./public/demo.png)
 
 ### Getting Started
 
