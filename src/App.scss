@@ -18,6 +18,45 @@
 
     .nav-wrapper {
       padding: 0.5rem 1rem;
+
+      font-family: 'DynaPuff', cursive;
+
+      h1 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem;
+        align-items: center;
+
+        p {
+          font-size: 1rem;
+          text-decoration: underline;
+        }
+
+        .search {
+          input {
+            background: #fff;
+            padding: 0.5rem 0.8rem;
+            border-radius: 15px;
+            color: #414c55;
+            outline: none;
+            border: 1px solid #efefef;
+            font-family: 'DynaPuff', cursive;
+          }
+
+          i {
+            margin-left: -2rem;
+            color: #414c55;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: transparent;
+          }
+        }
+      }
     }
 
     .movie-list {

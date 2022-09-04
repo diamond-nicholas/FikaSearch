@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import Nav from './Components/Navigation/Nav';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,14 +14,13 @@ function App() {
   const dispatch = useDispatch();
   const movieList = useSelector((state) => state.movie.Data);
   const genresList = useSelector((state) => state.genre.Data);
-  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchData = async () => {
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=d432b933ecc6d5642d8d2befbc40c7ac&language=en-US&page=1&include_adult=false`;
 
     const resp = await axios.get(url, { mode: 'cors' });
     dispatch(movieLists(resp.data.results));
-    setLoading(false);
   };
 
   const fetchGenre = async () => {
@@ -30,8 +28,9 @@ function App() {
 
     const resp = await axios.get(url, { mode: 'cors' });
     dispatch(genreList(resp.data.genres));
-    setLoading(false);
   };
+
+  console.log(searchTerm);
 
   useEffect(() => {
     fetchData();
@@ -41,7 +40,22 @@ function App() {
     <div className='homepage'>
       <section className='main'>
         <article className='nav-wrapper'>
-          <Nav />
+          <h1>FikaSearch App</h1>
+
+          <div className='nav-wrapper'>
+            <p>Movie List</p>
+
+            <div className='search'>
+              <input
+                type='text'
+                placeholder='search'
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+              />
+              <i class='fal fa-search'></i>
+            </div>
+          </div>
         </article>
         <article className='movie-list'>
           <div className='movie-list-wrapper'>
