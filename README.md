@@ -1,4 +1,4 @@
-# FikaSearch
+![](https://img.shields.io/badge/FikaSearch)
 
 ### Getting Started
 
