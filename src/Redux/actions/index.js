@@ -9,3 +9,8 @@ export const genreList = (genre) => ({
   type: actions.GENRES,
   payload: genre,
 });
+
+export const searchList = (search) => ({
+  type: actions.SEARCH,
+  payload: search,
+});
