@@ -1,5 +1,7 @@
 # FikaSearch
 
+![Cover Photo](demo.png)
+
 ### Getting Started
 
 You can run the application locally or run as a container
