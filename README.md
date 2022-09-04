@@ -1,4 +1,4 @@
-![](<(https://img.shields.io/badge/fikaSearch-blueviolet)>)
+![](https://img.shields.io/badge/fikaSearch-blueviolet)
 
 # FikaSearch
 
