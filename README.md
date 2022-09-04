@@ -32,12 +32,6 @@ To run this project on a container, make sure you have done the following
 - Run the command `docker-compose up` to build images and run container on `port:3000`
 - Visit `http://localhost:3000/`
 
-### Run Test
-
-To run the test for the application, after cloning the repository, run the following command
-
-- `npm test`
-
 ### Built With
 
 - React
