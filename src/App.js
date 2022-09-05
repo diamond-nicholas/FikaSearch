@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
-import FilterNav from './Components/Navigation/FilterNav';
+import FilterNav from './Components/FilterNav';
 import { useSelector, useDispatch } from 'react-redux';
 import { movieLists } from './Redux/actions/index';
 import { genreList } from './Redux/actions/index';
@@ -39,10 +39,6 @@ function App() {
     const resp = await axios.get(url, { mode: 'cors' });
     dispatch(searchList(resp.data.results));
     setIsLoading(false);
-  };
-
-  const handleClick = (name) => {
-    setSearchTerm(name.toLowerCase());
   };
 
   useEffect(() => {
@@ -188,7 +184,7 @@ function App() {
                     genresList.map(({ id, name }) => {
                       return (
                         <button
-                          onClick={() => handleClick(name)}
+                          onClick={() => setSearchTerm(name.toLowerCase())}
                           key={id}
                           className='genre-btn'
                         >
